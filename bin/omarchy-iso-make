@@ -17,23 +17,22 @@ while [[ $# -gt 0 ]]; do
     ;;
   --local-source)
     LOCAL_SOURCE=1
+    OMARCHY_MIRROR=edge
     shift
     ;;
   --dev)
     OMARCHY_INSTALLER_REF=dev
-    shift
-    ;;
-  --edge)
     OMARCHY_MIRROR=edge
     shift
     ;;
   --rc)
     OMARCHY_MIRROR=rc
+    OMARCHY_INSTALLER_REF=rc
     shift
     ;;
   *)
     echo "Unknown option: $1"
-    echo "Usage: $0 [--no-cache] [--no-boot-offer] [--local-source] [--dev] [--edge] [--rc]"
+    echo "Usage: $0 [--no-cache] [--no-boot-offer] [--local-source] [--dev] [--rc]"
     exit 1
     ;;
   esac
