@@ -90,9 +90,9 @@ repo-add --new "$offline_mirror_dir/offline.db.tar.gz" "$offline_mirror_dir/"*.p
 mkdir -p /var/cache/omarchy/mirror
 ln -s "$offline_mirror_dir" "/var/cache/omarchy/mirror/offline"
 
-# Copy the pacman.conf to the ISO's /etc directory so the live environment uses our
-# same config when booted. Use the online config with the correct mirror.
-cp $build_cache_dir/pacman-online-${OMARCHY_MIRROR}.conf "$build_cache_dir/airootfs/etc/pacman.conf"
+# Copy the offline pacman.conf to the ISO's /etc directory so the live environment uses our
+# same config when booted. 
+cp $build_cache_dir/pacman-offline.conf "$build_cache_dir/airootfs/etc/pacman.conf"
 
 # Finally, we assemble the entire ISO
 mkarchiso -v -w "$build_cache_dir/work/" -o "/out/" "$build_cache_dir/"
